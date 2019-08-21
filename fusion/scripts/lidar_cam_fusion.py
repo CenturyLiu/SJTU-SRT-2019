@@ -17,10 +17,10 @@ import math
 transf_x = 0.80
 transf_y = 0.0
 transf_z = -0.55
-Threshold = 50
+Threshold = 60
 Dist_move = 1.0
 L = 1.0#wheelbase
-Ld = 2.0#the foresee distance
+Ld = 3.0#the foresee distance
 Stop_coef = 12
 
 
@@ -123,9 +123,9 @@ class cone_fusion():
         sin_alpha = target[1] / Ld
         steer_angle = math.degrees(math.atan2(2*L*sin_alpha/Ld,1) )
         linear_velocity = 0.5
-        #if self.use_previous > 0:
-        #    steer_angle = 0.0
-        #    linear_velocity = 0.3
+        if self.use_previous > 0:
+            steer_angle = 0.0
+            linear_velocity = 0.3
         if self.use_previous > Stop_coef or (target[0] == 0 and target[1] == 0) or self.stop == 1: 
             steer_angle = 0.0
             linear_velocity = 0.0

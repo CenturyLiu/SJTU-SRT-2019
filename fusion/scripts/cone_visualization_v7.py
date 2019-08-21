@@ -75,7 +75,7 @@ def callback(msg):
     pt = list(point_cloud2.read_points(msg, field_names=("x", "y", "z"), skip_nans=True))
     #define a few constant numbers
     GROUND = -0.36
-    DISTANCE = 5.5
+    DISTANCE = 6.5
     THRESHOLD = 0.2
     GROUND_ERROR = 0.1
     #trans pt(cloud_pt) into list, and filtrate some useless points
