@@ -6,12 +6,12 @@ This project is designed for a FSAE competition racing car, not for a real life 
 
 To control the autonomous racing car, we need to perceive the surrouding environment, manage our route by the perception outcome and send control signal to the bottom level of the car. As introduced in the competition rule, the track is indicated by cones of different color. To recognize those cones, we choose lidar and depth camera as our sensor. Lidar is used for measuring the 3D position of the cones, and camera will provide the color of the cones. After perceiving the track, we use the pure-pursuit algorithm to manage our route and control the car (for detailed perception and control logic, see [fusion](https://github.com/CenturyLiu/srt-2019-fusion)). 
 
-Based on the design idea introduced above, the codes contained in this repository can be divided into three levels: sensor utilize level, perception and fusion level and car control level.
+Based on the design idea introduced above, the codes contained in this repository can be divided into three levels: sensor utilize level, perception and route management level and car control level.
 * Sensor Utilize level: 
      * MYNT-EYE-D-SDK (a modified version of slightech/MYNT-EYE-D-SDK [MYNT](https://github.com/slightech/MYNT-EYE-D-SDK)), codes for utilizing the MYNT-EYE I-120 depth camera
      * ros_rslidar-master (directly derived from RoboSense-LiDAR/ros_rslidar [rslidar](https://github.com/RoboSense-LiDAR/ros_rslidar)), codes for utilizing the Robosense 16-line lidar
      * imu-com, codes for our imu (haven't been put into real use yet)
-* Perception level:
+* Perception and route management level:
      * fusion (fully self-created package, responsible for cone detection, sensor fusion and route management)
 * Car control level
      * simple_controller (self-created package, responsible for translating upper level control commands into CAN signal and send the signal to the car)
