@@ -2,7 +2,7 @@
 > SJTU-SRT-2019 contains codes for ShangHai JiaoTong University's 2019 autonomous racing car 
 
 ## Overview 
-This project is designed for a FSAE competition racing car, not for a real life autonomous car. Before proceeding, please read competition rules page xx to page xx so as to have a better understanding of the environment we expect our car to be in.
+This project is designed for a FSAE competition racing car, not for a real life autonomous car. Before proceeding, please read competition rule (2019中国大学生无人驾驶方程式大赛规则_v1.0.1_0408.pdf) page 98 to page 104 so as to have a better understanding of the environment we expect our car to be in.
 
 To control the autonomous racing car, we need to perceive the surrouding environment, manage our route by the perception outcome and send control signal to the bottom level of the car. As introduced in the competition rule, the track is indicated by cones of different color. To recognize those cones, we choose lidar and depth camera as our sensor. Lidar is used for measuring the 3D position of the cones, and camera will provide the color of the cones. After perceiving the track, we use the pure-pursuit algorithm to manage our route and control the car (for detailed perception and control logic, see [fusion](https://github.com/CenturyLiu/srt-2019-fusion)). 
 
