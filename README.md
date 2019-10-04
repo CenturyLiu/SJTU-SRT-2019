@@ -26,13 +26,17 @@ Based on the design idea introduced above, the codes contained in this repositor
    * Install MYNT-EYE-D-SDK: follow this tutorial [MYNT-install](https://mynt-eye-d-sdk.readthedocs.io/en/latest/sdk/install_ubuntu_src.html)
    * Install following python modules: pillow, tensorflow, sympy, sklearn (these are essential modules, but not all the modules)
        * Only tensorflow under 1.11.0 support ros kinetic.Use 
+
 ```
 pip install tensorflow==1.11.0
 ```
+
        * Only scikit-learn under 0.18 support ros kinetic.Use 
+
 ```
 pip install scikit-learn==0.18
 ```
+
    * Install simple_controller: execute the following codes
       cd ~/catkin_ws/src/simple_controller/src
       sudo cp libusbcan.so /lib /usr/lib /usr/local/lib
