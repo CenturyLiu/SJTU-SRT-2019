@@ -22,11 +22,17 @@ Based on the design idea introduced above, the codes contained in this repositor
 ## Installation
    * git clone SJTU-SRT-2019 into your ROS workspace, i.e. "~/catkin_ws/src"
    * Install ros_rslidar: follow this tutorial [rslidar_install](https://github.com/Suoivy/ros_rslidar_robosense) by Suoivy
-	* Run "sudo apt-get install libpcap0.8-dev" for rslidar to install libpcap
+       * Remember to run "sudo apt-get install libpcap-dev"
    * Install MYNT-EYE-D-SDK: follow this tutorial [MYNT-install](https://mynt-eye-d-sdk.readthedocs.io/en/latest/sdk/install_ubuntu_src.html)
    * Install following python modules: pillow, tensorflow, sympy, sklearn (these are essential modules, but not all the modules)
-       * Only tensorflow under 1.11.0 support ros kinetic.Use "pip install tensorflow==1.11.0"
-       * Only scikit-learn under 0.18 support ros kinetic.Use "pip install scikit-learn==0.18"
+       * Only tensorflow under 1.11.0 support ros kinetic.Use 
+```
+pip install tensorflow==1.11.0
+```
+       * Only scikit-learn under 0.18 support ros kinetic.Use 
+```
+pip install scikit-learn==0.18
+```
    * Install simple_controller: execute the following codes
       cd ~/catkin_ws/src/simple_controller/src
       sudo cp libusbcan.so /lib /usr/lib /usr/local/lib
