@@ -24,12 +24,21 @@ Based on the design idea introduced above, the codes contained in this repositor
    * Install ros_rslidar: follow this tutorial [rslidar_install](https://github.com/Suoivy/ros_rslidar_robosense) by Suoivy
        * Remember to run "sudo apt-get install libpcap-dev"
    * Install MYNT-EYE-D-SDK: follow this tutorial [MYNT-install](https://mynt-eye-d-sdk.readthedocs.io/en/latest/sdk/install_ubuntu_src.html)
-   * Install following python modules: pillow, tensorflow, sympy, sklearn (these are essential modules, but not all the modules)
-       * Only tensorflow under 1.11.0 support ros kinetic.Use "pip install tensorflow==1.11.0"
+   * Install following python modules: pillow, tensorflow, sympy, sklearn, h5py (these are essential modules, but not all the modules)
+       * Only tensorflow under 1.11.0 support ros kinetic.Use "pip install tensorflow==1.11.0". Tensorflow needs a higer version numpy so please check your numpy version and upgrade it if your find error "module compiled against API version 0xc but this version of numpy is 0xa" when running fusion.
        * Only scikit-learn under 0.18 support ros kinetic.Use "pip install scikit-learn==0.18"
+       * If you meet problem when pip install h5py, please download [h5py-2.7.1.tar.gz](https://files.pythonhosted.org/packages/41/7a/6048de44c62fc5e618178ef9888850c3773a9e4be249e5e673ebce0402ff/h5py-2.7.1.tar.gz) to your computer. Extract it and change setup.py Line 30 
+```
+RUN_REQUIRES = [NUMPY_DEP,'six']
+```
+to
+```
+RUN_REQUIRES = ['six']
+```
+The problem comes from the problem that the latest version of numpy cannot be installed on python2.7. So we just ignore that.Then compress it and run "pip install h5py-2.7.1.tar.gz".
    * Install simple_controller: execute the following codes
       cd ~/catkin_ws/src/simple_controller/src
-      sudo cp libusbcan.so /lib /usr/lib /usr/local/lib
+      sudo cp libusbcan.so /lib /usr/lib /usr/local/lib\
 ## Implementation
    * roslaunch rslidar_pointcloud rs_lidar_16.launch (start the lidar)
    * roslaunch mynteye_wrapper_d mynteye.launch (start the camera)
